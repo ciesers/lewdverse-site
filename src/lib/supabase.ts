@@ -54,8 +54,45 @@ export interface ProductFAQ {
 
 export async function getAllProducts() {
   if (!isSupabaseConfigured) {
-    console.warn('Supabase not configured - returning empty products');
-    return [];
+    // Fallback products when Supabase is not configured
+    return [
+      {
+        id: '1',
+        slug: 'beta-one',
+        name: 'Beta One',
+        subtitle: 'Advanced Intimacy Technology',
+        base_price: 999,
+        short_description: 'The foundation of modern intimate technology. Precision-engineered for connection.',
+        full_description: 'Beta One represents our core offering in advanced intimacy technology.',
+        image_url: '/images/product-1.png',
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      },
+      {
+        id: '2',
+        slug: 'beta-two',
+        name: 'Beta Two',
+        subtitle: 'Enhanced Connection Protocol',
+        base_price: 1499,
+        short_description: 'Elevate your experience with next-generation connection capabilities.',
+        full_description: 'Beta Two offers enhanced features for deeper connections.',
+        image_url: '/images/product-2.png',
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      },
+      {
+        id: '3',
+        slug: 'beta-three',
+        name: 'Beta Three',
+        subtitle: 'Premium Intimacy Suite',
+        base_price: 2499,
+        short_description: 'The ultimate intimate technology experience. Unlimited potential.',
+        full_description: 'Beta Three is our premium offering with all features unlocked.',
+        image_url: '/images/product-3.png',
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      }
+    ] as Product[];
   }
   const { data, error } = await supabase
     .from('products')
