@@ -1,9 +1,14 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
-export const supabase = createClient(supabaseUrl || '', supabaseAnonKey || '');
+// Only create client if credentials are provided
+export const supabase: SupabaseClient = supabaseUrl && supabaseAnonKey 
+  ? createClient(supabaseUrl, supabaseAnonKey)
+  : null as unknown as SupabaseClient;
+
+export const isSupabaseConfigured = !!(supabaseUrl && supabaseAnonKey);
 
 export interface Product {
   id: string;
@@ -48,6 +53,10 @@ export interface ProductFAQ {
 }
 
 export async function getAllProducts() {
+  if (!isSupabaseConfigured) {
+    console.warn('Supabase not configured - returning empty products');
+    return [];
+  }
   const { data, error } = await supabase
     .from('products')
     .select('*')
@@ -58,6 +67,9 @@ export async function getAllProducts() {
 }
 
 export async function getProductBySlug(slug: string) {
+  if (!isSupabaseConfigured) {
+    return null;
+  }
   const { data, error } = await supabase
     .from('products')
     .select('*')
@@ -69,6 +81,9 @@ export async function getProductBySlug(slug: string) {
 }
 
 export async function getProductSpecifications(productId: string) {
+  if (!isSupabaseConfigured) {
+    return [];
+  }
   const { data, error } = await supabase
     .from('product_specifications')
     .select('*')
@@ -80,6 +95,9 @@ export async function getProductSpecifications(productId: string) {
 }
 
 export async function getProductPricingTiers(productId: string) {
+  if (!isSupabaseConfigured) {
+    return [];
+  }
   const { data, error } = await supabase
     .from('product_pricing_tiers')
     .select('*')
@@ -91,6 +109,9 @@ export async function getProductPricingTiers(productId: string) {
 }
 
 export async function getProductFAQs(productId: string) {
+  if (!isSupabaseConfigured) {
+    return [];
+  }
   const { data, error } = await supabase
     .from('product_faqs')
     .select('*')
