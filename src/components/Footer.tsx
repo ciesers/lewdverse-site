@@ -8,7 +8,7 @@ export default function Footer() {
         integratedTargetId: "jupiter-widget",
         formProps: {
           initialInputMint: "So11111111111111111111111111111111111111112",
-          initialOutputMint: "EpDExDuYGp1Sg7c9TQgdEWMzSmmzCm1JWh1pvD9epump",
+          initialOutputMint: "8cQFwdPqpaR9ekN19HMi8wre2C3FBqyoCTu2Y5P8pump",
         },
         branding: {
           logoUri: "https://betaverse-premium-ci-e7c7.bolt.host/betaerselogo1.png",
@@ -33,7 +33,7 @@ export default function Footer() {
             <h4 className="text-sm font-light text-gray-800 mb-3 tracking-wide">Contract Address</h4>
             <div className="inline-block bg-white/30 backdrop-blur-sm border border-white/40 rounded-lg px-6 py-3">
               <code className="text-sm font-mono text-gray-800 break-all">
-                EpDExDuYGp1Sg7c9TQgdEWMzSmmzCm1JWh1pvD9epump
+                8cQFwdPqpaR9ekN19HMi8wre2C3FBqyoCTu2Y5P8pump
               </code>
             </div>
           </div>

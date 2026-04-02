@@ -67,7 +67,15 @@ export default function Header() {
               About
             </Link>
             <a
-              href="https://dexscreener.com/solana/EpDExDuYGp1Sg7c9TQgdEWMzSmmzCm1JWh1pvD9epump"
+              href="https://pump.fun/coin/8cQFwdPqpaR9ekN19HMi8wre2C3FBqyoCTu2Y5P8pump"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-normal tracking-wide transition-all duration-300 text-gray-600 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-green-500 hover:to-blue-500"
+            >
+              Pump
+            </a>
+            <a
+              href="https://dexscreener.com/solana/8cQFwdPqpaR9ekN19HMi8wre2C3FBqyoCTu2Y5P8pump"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-normal tracking-wide transition-all duration-300 text-gray-600 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-green-500 hover:to-blue-500"
@@ -81,7 +89,7 @@ export default function Header() {
               Trade
             </a>
             <a
-              href="https://x.com/suckerbergverse"
+              href="https://x.com/Thelewd_verse"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-normal tracking-wide transition-all duration-300 text-gray-600 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-green-500 hover:to-blue-500"
